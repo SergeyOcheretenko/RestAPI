@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/SergeyOcheretenko/RestAPI/issues"
   },
-  "homepage": "https://github.com/SergeyOcheretenko/RestAPI#readme"
+  "homepage": "https://github.com/SergeyOcheretenko/RestAPI#readme",
+  "dependencies": {
+    "express": "^4.18.1"
+  }
 }
