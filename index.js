@@ -1,4 +1,5 @@
 import express from "express";
+import mongoose from "mongoose";
 import config from "./CONFIG.js";
 
 const app = express();
@@ -14,4 +15,13 @@ app.post('/', (req, res) => {
     res.status(200).json('Server (post) is working');
 });
 
-app.listen(config.PORT, () => console.log('SERVER STARTED'));
+async function startApp() {
+    try {
+        await mongoose.connect(config.DB_URL, { useUnifiedTopology: true, useNewUrlParser: true });
+        app.listen(config.PORT, () => console.log('SERVER STARTED'));
+    } catch(e) {
+        console.log(e);
+    }
+}
+
+startApp();
