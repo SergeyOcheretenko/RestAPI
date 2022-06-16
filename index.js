@@ -1,19 +1,12 @@
 import express from "express";
 import mongoose from "mongoose";
 import config from "./CONFIG.js";
+import router from './router.js';
 
 const app = express();
 
 app.use(express.json());
-
-app.get('/', (req, res) => {
-    res.status(200).json('Server (get) is working');
-});
-
-app.post('/', (req, res) => {
-    console.log(req.body);
-    res.status(200).json('Server (post) is working');
-});
+app.use('/api', router);
 
 async function startApp() {
     try {
